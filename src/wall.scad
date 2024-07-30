@@ -1,5 +1,5 @@
 // Dimensions of the requested wall
-Wall_Dimensions = [144, 100.5];
+Wall_Dimensions = [144, 50.5];
 
 // Dimensions of the studs to use
 Stud_Dimensions = [1.5, 3.5, 96];
@@ -19,7 +19,13 @@ Include_Studs = true;
 // Scale factor useful when importing to other software (ex. 25.4 for inches);
 Scale_Factor = 25.4;
 
-module wall(wall_dimensions, stud_dimensions = [1.5, 3.5, 96], stud_spacing = 24, skip_studs = [], object_spacing = 0.0625, include_studs = true) {
+module wall(
+    wall_dimensions,
+    stud_dimensions = [1.5, 3.5, 96],
+    stud_spacing = 24,
+    skip_studs = [],
+    object_spacing = 0.0625,
+    include_studs = true) {
     length = wall_dimensions[0];
     height = wall_dimensions[1];
 
@@ -44,7 +50,7 @@ module wall(wall_dimensions, stud_dimensions = [1.5, 3.5, 96], stud_spacing = 24
     // studs
     // first
     translate([0, 0, stud_dimensions[0] + object_spacing])
-    cube([stud_dimensions[0], stud_dimensions[1], stud_dimensions[2] - (object_spacing * 2)]);
+    cube([stud_dimensions[0], stud_dimensions[1], height - (stud_dimensions[0] * 3) - (object_spacing * 2)]);
 
     if (include_studs) {
         // studs
@@ -52,13 +58,13 @@ module wall(wall_dimensions, stud_dimensions = [1.5, 3.5, 96], stud_spacing = 24
         for (i = [1:1:stud_count]) {
             if (len(search(i, skip_studs)) == 0)
             translate([i * stud_spacing, 0, stud_dimensions[0] + object_spacing])
-            cube([stud_dimensions[0], stud_dimensions[1], stud_dimensions[2] - (object_spacing * 2)]);
+            cube([stud_dimensions[0], stud_dimensions[1], height - (stud_dimensions[0] * 3) - (object_spacing * 2)]);
         }
     }
 
     // last
     translate([length - stud_dimensions[0], 0, stud_dimensions[0] + object_spacing])
-    cube([stud_dimensions[0], stud_dimensions[1], stud_dimensions[2] - (object_spacing * 2)]);
+    cube([stud_dimensions[0], stud_dimensions[1], height - (stud_dimensions[0] * 3) - (object_spacing * 2)]);
 
     // top plates
     if (plate_overflow > 0) {

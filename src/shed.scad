@@ -32,3 +32,17 @@ translate([0, 192 / 2 - 72 / 2, 1.5])
 translate([192, 0, 0])
 rotate([0, 0, 90])
 door([72, 80, 3.5]);
+
+
+translate([0, -80 - Object_Spacing, 0])
+wall([192, 90]);
+
+translate([0, Object_Spacing, 0])
+rotate([0, 0, -90])
+wall([80 - 3.5, 90]);
+
+for (i = [0:24:192]) {
+    translate([1.5, -80 + 1.125, 90 + (Object_Spacing * 2) - 2])
+    rotate([0, 0, 90])
+    rafter2(-i, 80, 10.5, [1.5, 3.5, 192]);
+}
