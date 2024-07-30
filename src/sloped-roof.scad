@@ -57,6 +57,8 @@ module roof(roof_dimensions, rafter_dimensions = [1.5, 3.5, 192], rafter_spacing
 
     // last truss
     truss(roof_dimensions[2] - rafter_dimensions[0], angle, rafter_length, roof_dimensions, rafter_dimensions, rafter_spacing, object_spacing);
+
+    // TODO: furring strips (1x2x96) on top of rafters
 };
 
 scale([Scale_Factor, Scale_Factor, Scale_Factor])
