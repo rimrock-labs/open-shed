@@ -12,7 +12,7 @@ translate([3.5, 3.5 + Object_Spacing, 0])
 rotate([0, 0, 90])
 wall([192 - 7, 100.5]);
 
-translate([0, 0, 100.5])
+translate([0, 0, 100.5 + (Object_Spacing * 2)])
 mirror([1, 0, 0])
 rotate([0, 0, 90])
 roof([192, 30, 192]);
