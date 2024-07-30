@@ -44,5 +44,13 @@ wall([80 - 3.5, 90]);
 for (i = [0:24:192]) {
     translate([1.5, -80 + 1.125, 90 + (Object_Spacing * 2) - 2])
     rotate([0, 0, 90])
-    rafter2(-i, 80, 10.5, [1.5, 3.5, 192]);
+    rafter2(-i, 80, 12.5, [1.5, 3.5, 192]);
 }
+
+translate([192 - 3.5, -Object_Spacing, 0])
+rotate([0, 0, -90])
+wall([80 - 3.5 - Object_Spacing * 2, 90], include_studs = false);
+
+translate([192 - 3.5, - 15, 0])
+rotate([0, 0, -90])
+door([36, 70, 3.5]);
