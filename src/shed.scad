@@ -33,7 +33,7 @@ translate([192, 0, 0])
 rotate([0, 0, 90])
 door([72, 80, 3.5]);
 
-
+/*
 translate([0, -80 - Object_Spacing, 0])
 wall([192, 90]);
 
@@ -54,3 +54,4 @@ wall([80 - 3.5 - Object_Spacing * 2, 90], include_studs = false);
 translate([192 - 3.5, - 15, 0])
 rotate([0, 0, -90])
 door([36, 70, 3.5]);
+*/
